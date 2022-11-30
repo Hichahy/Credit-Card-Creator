@@ -1,12 +1,12 @@
 import React from 'react';
-
+import { CreditCardApperance } from './components/creditCardApperance';
 
 const App = () => {
   return (
     <>
-    Hello Credit Cart
+      <CreditCardApperance />
     </>
   );
-}
+};
 
 export default App;
