@@ -1,0 +1,7 @@
+@import "./variables.scss";
+
+@media only screen and (min-width: $desktop) {
+    .app {
+        display: flex;
+    }
+}
