@@ -1,0 +1,83 @@
+@import '../../variables.scss';
+
+form {
+  padding: 6rem 1.5rem 1.5rem 1.5rem;
+
+  span {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+
+  label {
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-bottom: 0.7rem;
+  }
+
+  input {
+    padding: 10px 8px;
+    border-radius: 7px;
+    border: 1px solid $lightGraylishViiolet;
+
+    &:focus {
+      outline: solid $violet;
+    }
+
+    &::placeholder {
+        color:  $lightGraylishViiolet;
+        font-weight: 900
+      }
+  }
+
+  button {
+    width: 100%;
+    padding: 14px 5px;
+    border-radius: 7px;
+    font-size: 16px;
+    border: none;
+    color: $white;
+    background: $veryDarkViolet;
+    cursor: pointer;
+  }
+
+  div:nth-child(3) {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    span:nth-child(1) {
+      flex-shrink: 0;
+      input {
+        width: 3rem;
+        margin-right: 1rem;
+      }
+    }
+    span:nth-child(2) {
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (min-width: $desktop) {
+  .form-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  form {
+    width: 25rem;
+    padding: 0;
+
+    div:nth-child(3) {
+      justify-content: flex-start;
+
+      span:nth-child(2) {
+        width: 100%;
+      }
+    }
+  }
+}
