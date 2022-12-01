@@ -19,6 +19,7 @@ form {
     padding: 10px 8px;
     border-radius: 7px;
     border: 1px solid $lightGraylishViiolet;
+    text-transform: uppercase;
 
     &:focus {
       outline: solid $violet;

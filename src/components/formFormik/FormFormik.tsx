@@ -1,5 +1,5 @@
-import React from 'react';
-import { Form, Field, Formik } from 'formik';
+import React, { useEffect } from 'react';
+import { Form, Field, Formik, useFormikContext } from 'formik';
 import './formFormik.scss';
 
 interface MyFormValues {
@@ -10,26 +10,34 @@ interface MyFormValues {
   cvc: string;
 }
 
-export const FormFormik = () => {
-  const initialValues: MyFormValues = {
-    cardHolderName: '',
-    cardNumber: '',
-    month: '',
-    year: '',
-    cvc: '',
-  };
+interface IProps {
+  cardForm: MyFormValues;
+  setCartForm: (arg0: any) => void;
+}
 
+//formik doesn't have onChange. So... I created this way :)
+const FormObserver = ({ setCartForm }: IProps) => {
+  const { values } = useFormikContext();
+
+  useEffect(() => {
+    setCartForm(values);
+  }, [values]);
+
+  return null;
+};
+
+export const FormFormik = ({ cardForm, setCartForm }: IProps) => {
   return (
     <div className='form-container'>
       <Formik
-        initialValues={initialValues}
+        initialValues={cardForm}
         onSubmit={(values, actions) => {
-          console.log({ values, actions });
-          alert(JSON.stringify(values, null, 2));
+          setCartForm(values);
           actions.setSubmitting(false);
         }}
       >
         <Form>
+          <FormObserver setCartForm={setCartForm} cardForm={cardForm}/>
           <span>
             <label htmlFor='firstName'>card holder name</label>
             <Field
