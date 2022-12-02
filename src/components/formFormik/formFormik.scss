@@ -15,6 +15,7 @@ form {
     margin-bottom: 0.7rem;
   }
 
+
   input {
     padding: 10px 8px;
     border-radius: 7px;
@@ -26,9 +27,23 @@ form {
     }
 
     &::placeholder {
-        color:  $lightGraylishViiolet;
-        font-weight: 900
-      }
+      color: $lightGraylishViiolet;
+      font-weight: 900;
+    }
+  }
+
+  .input-error {
+    border: solid red;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: $error;
   }
 
   button {
@@ -44,18 +59,33 @@ form {
 
   div:nth-child(3) {
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: space-between;
 
     span:nth-child(1) {
       flex-shrink: 0;
+
+      div:nth-child(2) {
+        display: flex;
+        flex-direction: row;
+
+        div:nth-child(1) {
+          display: flex;
+          flex-direction: column;
+        }
+        div:nth-child(2) {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+
       input {
-        width: 3rem;
+        width: 4rem;
         margin-right: 1rem;
       }
     }
     span:nth-child(2) {
-      width: 100%;
+      min-width: 1vw;
     }
   }
 }
