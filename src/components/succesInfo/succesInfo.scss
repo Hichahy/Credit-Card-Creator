@@ -1,0 +1,64 @@
+@import '../../variables.scss';
+
+.succes-box {
+  padding: 6rem 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  -webkit-animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+
+  button {
+    width: 100%;
+    padding: 14px 5px;
+    border-radius: 7px;
+    font-size: 16px;
+    border: none;
+    color: $white;
+    background: $veryDarkViolet;
+    cursor: pointer;
+  }
+
+  h3 {
+    margin: 2rem 0 1rem 0;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin: 0 0 2rem 0;
+    color: $darkGraylishViolet;
+  }
+}
+
+@media only screen and (min-width: $desktop) {
+  .succes-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .succes-box {
+    width: 25rem;
+    padding: 0;
+  }
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
