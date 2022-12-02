@@ -43,7 +43,6 @@ export const FormFormik = ({
         initialValues={cardForm}
         validationSchema={SignupSchema}
         onSubmit={(values, actions) => {
-          console.log(SignupSchema);
           setSuccesSending(true);
           actions.setSubmitting(false);
         }}
