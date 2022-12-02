@@ -11,13 +11,18 @@ interface MyFormValues {
   cvc: string;
 }
 
-interface IProps {
-  cardForm: MyFormValues;
+interface IFormObserver {
   setCartForm: (value: any) => void;
 }
 
+interface IProps {
+  cardForm: MyFormValues;
+  setCartForm: (value: any) => void;
+  setSuccesSending: (value: boolean) => void;
+}
+
 //formik doesn't have onChange. So I created this way
-const FormObserver = ({ setCartForm }: IProps) => {
+const FormObserver = ({ setCartForm }: IFormObserver) => {
   const { values } = useFormikContext();
 
   useEffect(() => {
@@ -27,20 +32,25 @@ const FormObserver = ({ setCartForm }: IProps) => {
   return null;
 };
 
-export const FormFormik = ({ cardForm, setCartForm }: IProps) => {
+export const FormFormik = ({
+  cardForm,
+  setCartForm,
+  setSuccesSending,
+}: IProps) => {
   return (
     <div className='form-container'>
       <Formik
         initialValues={cardForm}
         validationSchema={SignupSchema}
         onSubmit={(values, actions) => {
-          setCartForm(values);
+          console.log(SignupSchema);
+          setSuccesSending(true);
           actions.setSubmitting(false);
         }}
       >
         {({ errors, touched }) => (
           <Form>
-            <FormObserver setCartForm={setCartForm} cardForm={cardForm} />
+            <FormObserver setCartForm={setCartForm} />
             <span>
               <label htmlFor='firstName'>card holder name</label>
               <Field
