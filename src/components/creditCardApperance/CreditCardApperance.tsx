@@ -22,12 +22,14 @@ export const CreditCardApperance = ({ cardForm }: IProps) => {
       </div>
       <div className='card-front'>
         <img src='images/card-logo.svg' alt='logo' />
-        <h3>{joy}</h3>
-        <div>
-          <p>{cardForm.cardHolderName}</p>
-          <p>
-            {cardForm.month}/{cardForm.year}
-          </p>
+        <div className='data-wrapper'>
+          <h3>{joy}</h3>
+          <div className='user-data-wrapper'>
+            <p>{cardForm.cardHolderName}</p>
+            <p>
+              {cardForm.month}/{cardForm.year}
+            </p>
+          </div>
         </div>
       </div>
     </div>
